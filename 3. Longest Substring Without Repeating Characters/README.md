@@ -12,9 +12,10 @@
 *  内存消耗: 8MB,在所有 C++ 提交中击败了67.24%的用户
 
 
-* 时间复杂度：![](http://latex.codecogs.com/gif.latex?\O(N)})，其中 $N$ 是字符串的长度。左指针和右指针分别会遍历整个字符串一次。
-* 空间复杂度：$O(|\Sigma|)$，其中 $\Sigma$ 表示字符集（即字符串中可以出现的字符），$|\Sigma|$ 表示字符集的大小。
-在本题中没有明确说明字符集，因此可以默认为所有 ASCII 码在 [0, 128)内的字符，
-即 $|\Sigma| = 128$。我们需要用到哈希集合来存储出现过的字符，而字符最多有 $|\Sigma|$ 个
-因此空间复杂度为 $O(|\Sigma|)$。
+
+* 时间复杂度：![](http://latex.codecogs.com/gif.latex?O(N)) ，其中 ![](http://latex.codecogs.com/gif.latex?N) 是字符串的长度。左指针和右指针分别会遍历整个字符串一次。
+* 空间复杂度：![](http://latex.codecogs.com/gif.latex?O(|\Sigma|)) ，其中 ![](http://latex.codecogs.com/gif.latex?\Sigma) 表示字符集（即字符串中可以出现的字符），![](http://latex.codecogs.com/gif.latex?\|\Sigma|) 表示字符集的大小。
+在本题中没有明确说明字符集，因此可以默认为所有 ASCII 码在[0, 128)内的字符，
+即 ![](http://latex.codecogs.com/gif.latex?|\Sigma|=128) 。我们需要用到哈希集合来存储出现过的字符，而字符最多有 ![](http://latex.codecogs.com/gif.latex?|\Sigma|) 个
+因此空间复杂度为 ![](http://latex.codecogs.com/gif.latex?O(|\Sigma|)) 。
  
