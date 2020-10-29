@@ -11,7 +11,7 @@
  */
 
 #include <iostream>
-#include <unordered_set>
+#include <vector>
 
 using namespace std;
 
@@ -19,20 +19,15 @@ using namespace std;
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
+        vector<int> m(128, 0);         // ASCII码范围：0-127 定义128个正型向量且每个元素的初始值为0
+        int ans = 0;
+        int i = 0;
 
-        unordered_set<char> occ;                 // 哈希集合，记录每个字符是否出现过
-        int n = s.size();                        // 右指针，初始值为 -1，相当于我们在字符串的左边界的左侧，还没有开始移动
-        int rk = -1, ans = 0;                    // 枚举左指针的位置，初始值隐性地表示为 -1
+        for (int j = 0; j < s.size(); j++){
 
-        for (int i = 0; i < n; ++i) {
-            if (i != 0) {
-                occ.erase(s[i - 1]);          // 左指针向右移动一格，移除一个字符
-            }
-            while (rk + 1 < n && !occ.count(s[rk + 1])) {
-                occ.insert(s[rk + 1]);        // 不断地移动右指针
-                ++rk;
-            }
-            ans = max(ans, rk - i + 1);          // 第 i 到 rk 个字符是一个极长的无重复字符子串
+            i = max(i, m[s[j]]);             // 没有重复字符的时候i取值不变，继续调整右边界
+            m[s[j]] = j + 1;                 // 出现重复字符时i应该调整到的新位置，调整左边界
+            ans = max(ans, j - i + 1);
         }
         return ans;
     }
